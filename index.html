@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Navbar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/24f74c1771.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .nav-container a {
+      padding: 16px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .nav-container .active {
+     color: #F78103;
+    }
+
+    .nav-container a:hover:not(.active) {
+      background-color: rgba(0, 0, 0, 0.265);
+    }
+    a {
+      text-decoration: none !important;
+      color: #000000;
+      font-family: "Nunito", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33px;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #f7f7f7;
+      padding: 10px 100px;
+      height: 90px;
+    }
+
+    #brief {
+      min-height: 85vh;
+      background-image: url(./images/hero-section\ bg.jpg);
+      background-size: cover;
+      background-color: #333;
+      display: flex;
+      width: 100%;
+      padding-top: 80px;
+      padding-left: 100px;
+    }
+
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .right-side {
+      display: flex;
+      width: 60%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .momo-hero {
+      height: 600px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .primary-btn {
+      background-color: #F78103;
+      box-shadow: 0 0 5px #F78103;
+    }
+      
+
+    .secondary-btn {
+      background-color: transparent;
+      border: 1px solid #F78103;
+    }
+    
+    .button {
+      font-family: Nunito, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0em;
+      padding: 12px 25px;
+      border-radius: 14px;
+      color: #f4f4f4;
+    }
+
+    .button:hover {
+      color: #dee2e6;
+    }
+
+    h1 {
+      font-family: Montserrat, sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 55px;
+      letter-spacing: 0em;
+    }
+
+    h2 {
+      font-family: Montserrat, sans-serif;
+      font-size: 44px;
+      font-weight: 600;
+      line-height: 50px;
+      letter-spacing: 0em;
+
+    }
+
+    h3 {
+      font-family: Montserrat, sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 50px;
+      letter-spacing: 0em;
+
+    }
+
+
+    .nav-link i:hover {
+      color: #007bff; 
+    }
+
+    .nav-link i {
+      font-size: 18px; 
+    }
+
+    #about {
+      display: flex;
+      min-height: 75vh;
+    }
+
+    .about-momo {
+      height: 400px;
+      width: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+
+
+
+
+    .menu-container {
+      margin: 0 auto;
+      padding: 80px 20px;
+      background-color: #f2f2f2;
+    }
+    
+    .menu {
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+    
+    .menu-group-heading {
+      margin: 0;
+      padding-bottom: 1em;
+      border-bottom: 2px solid #ccc;
+    }
+    
+    .menu-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
+      padding: 1.5em 0;
+    }
+    
+    .menu-item {
+      display: flex;
+    }
+    
+    .menu-item-img {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      object-fit: cover;
+      margin-right: 1.5em;
+    }
+    
+    .menu-item-text {
+      flex-grow: 1;
+    }
+    
+    .menu-item-heading {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+    }
+    
+    .menu-item-name {
+      margin-right: 1.5em;
+    }
+    
+    .menu-item-desc {
+      line-height: 1.6;
+    }
+
+
+
+
+
+
+    .contact{
+      display: flex;
+      background: #fff;
+      border-radius: 6px;
+      padding: 20px 60px 30px 40px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      min-height: 80vh;
+      justify-content: center;
+    }
+    .contact .content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .contact .content .left-side-contact{
+      width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      position: relative;
+    }
+    .content .left-side-contact::before{
+      content: '';
+      position: absolute;
+      height: 70%;
+      width: 2px;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #afafb6;
+    }
+    .content .left-side-contact .details{
+      margin: 14px;
+      text-align: center;
+    }
+    .content .left-side-contact .details i{
+      font-size: 30px;
+      color: #F78103;
+      margin-bottom: 10px;
+    }
+    .content .left-side-contact .details .topic{
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .content .left-side-contact .details .text-one,
+    .content .left-side-contact .details .text-two{
+      font-size: 14px;
+      color: #afafb6;
+    }
+    .contact .content .right-side-contact{
+      width: 75%;
+      margin-left: 75px;
+    }
+    .content .right-side-contact .topic-text{
+      font-size: 23px;
+      font-weight: 600;
+      color: #F78103;
+    }
+    .right-side-contact .input-box{
+      height: 50px;
+      width: 100%;
+      margin: 12px 0;
+    }
+    .right-side-contact .input-box input,
+    .right-side-contact .input-box textarea{
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      background: #F0F1F8;
+      border-radius: 6px;
+      padding: 0 15px;
+      resize: none;
+    }
+
+    .right-side-contact .message-box{
+      min-height: 110px;
+    }
+    .right-side-contact .input-box textarea{
+      padding-top: 6px;
+    }
+    .right-side-contact .button{
+      display: inline-block;
+      margin-top: 12px;
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    .offcanvas-body {
+      display: flex;
+      flex-direction: column;
+      padding-left: 40px ;
+      gap: 20px;
+    }
+
+    @media screen and (min-width: 992px) {
+
+      .menu-container {
+        padding: 100px 150px;
+      }
+      .menu {
+        font-size: 14px;
+      }
+
+      .menu-group {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .menu-item-img {
+        width: 125px;
+        height: 125px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      h1 {
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+
+      h2 {
+        font-size: 32px;
+        line-height: 36px;
+
+      }
+
+      h3 {
+        font-size: 28px;
+        line-height: 32px;
+
+      }
+
+      .momo-items {
+        font-size: 22px;
+        line-height: 24px;
+      }
+
+      
+      .contact {
+        padding: 30px 40px 40px 35px ;
+      }
+      .contact .content .right-side-contact{
+        width: 75%;
+        margin-left: 55px;
+      }
+
+      .contact{
+        height: 100%;
+      }
+      .contact .content{
+        flex-direction: column-reverse;
+      }
+      .contact .content .left-side-contact{
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .contact .content .left-side-contact::before{
+        display: none;
+      }
+      .contact .content .right-side-contact{
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .nav-container {
+        display: none;
+      }
+
+      .navbar {
+        padding: 10px 20px;
+        height: 90px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      #brief {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 140px;
+        padding-bottom: 50px;
+        padding-left: 20px;
+
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .left-side {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        padding: 0px 20px;
+      }
+
+      .right-side {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .momo-hero {
+        height: 300px;
+      }
+
+
+
+      #about {
+        display: flex;
+        flex-direction: column;
+        min-height: 75vh;
+        padding: 50px 20px;
+        gap: 30px;
+      }
+
+      .about-momo {
+        height: 400px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+      
+
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar fixed-top">
+  <div class="logo-container">
+    <img src="./images/logo no bg.png" alt="momo durbar logo" class="logo" height="60px">
+  </div>
+  <div class="nav-container">
+    <a class="brief active" href="#brief">Home</a>
+    <a class="about" href="#about">About</a>
+    <a class="menus" href="#menus">Menu</a>
+    <a class="contactus" href="#contactus">Contact</a>
+  </div>
+  <div class="hamburger" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <i style="font-size: 28px;" class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+
+<nav class="offcanvas-navigation">
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1"
+      id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <img src="./images/logo no bg.png" alt="momo durbar logo" class="logo" height="60px">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <a class="brief active" href="#brief">Home</a>
+        <a class="about" href="#about">About</a>
+        <a class="menus" href="#menus">Menu</a>
+        <a class="contactus" href="#contactus">Contact</a>
+      </div>
+  </div>
+</nav>
+
+
+<section id="brief">
+  <div class="left-side">
+    <h1 style="color: #EFD400;">MO MO Durbar: <br>Taste of Authentic MOMOs</h1>
+    <p style="color: #adb5bd;"> <b>We don't judge. We get the momo cravings.</b> Our perfectly cooked momos are like little flavor bombs waiting to explode in your mouth. Juicy fillings, delicate dough, and dipping sauces that will have you coming back for more. We've all been there, staring longingly at the steamer basket, willing ourselves to stop at just one order. But hey, no judgment here!</p>
+    <div class="buttons">
+      <a href="#contactus" class="button primary-btn">Contact Us</a>
+      <a href="#menus" class="button secondary-btn">View Menu</a>
+    </div>
+  </div>
+  <div class="right-side">
+    <img src="./images/momo.png" alt="fresh hot steaming momos" class="momo-hero">
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="right-side">
+    <img src="./images/about momo.jpg" alt="fresh hot steaming momos" class="about-momo">
+  </div>
+  <div class="left-side" style="margin-right: 100px;">
+    <h2 style="color: #690001;">How it started?</h2>
+    <p style="color: #adb5bd;"> <b>We don't judge. We get the momo cravings.</b> Our perfectly cooked momos are like little flavor bombs waiting to explode in your mouth. Juicy fillings, delicate dough, and dipping sauces that will have you coming back for more. We've all been there, staring longingly at the steamer basket, willing ourselves to stop at just one order. But hey, no judgment here!</p>
+    <div class="buttons">
+      <a href="#menus" class="button secondary-btn" style="color: #333;">View Menu</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="menu-container" id="menus">
+  <h2 style="color: #222; text-align: center; margin-bottom: 30px;">Our Menu</h2>
+  <div class="menu">
+    <h3 class="menu-group-heading">Entrée</h3>
+    <div class="menu-group">
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/000/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price momo-items">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/ccc/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/000/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price momo-items">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu" style="padding-top: 80px;">
+    <h3 class="menu-group-heading">Main Course</h3>
+    <div class="menu-group">
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/ccc/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price momo-items">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/000/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price momo-items">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img
+          src="https://dummyimage.com/600x400/ccc/fff"
+          alt="Black Placeholder Image"
+          class="menu-item-img"
+        />
+        <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+            <span class="menu-item-name momo-items">Bruschetta</span>
+            <span class="menu-item-price momo-items">$12.90</span>
+          </h3>
+          <p class="menu-item-desc">
+            Nunc efficitur felis vel mi efficitur, sed molestie sem
+            scelerisque. Fusce orci risus, congue eu mauris nec, pretium
+            tincidunt nulla.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="contact" id="contactus">
+  <div class="content">
+    <div class="left-side-contact">
+      <div class="address details">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="topic">Address</div>
+          <a style="font-size: 14px; font-weight: 400; line-height: 20px;" href="https://maps.app.goo.gl/PaWy8PrA3hNA2f617">
+            <div class="text-one">AM Paraman Memorial Building,ground Floor,West Fort Junction, Calvary Rd</div>
+            <div class="text-two">West Fort, Thrissur, Kerala 680004</div>
+          </a>
+      </div>
+      <div class="phone details">
+        <i class="fas fa-phone-alt"></i>
+        <div class="topic">Phone</div>
+        <div class="text-one"><a style="font-size: 14px; font-weight: 400; line-height: 20px;" href="tel:+91 9778455569">+91 9778455569</a></div>
+        <!-- <div class="text-two">+0096 3434 5678</div> -->
+      </div>
+      <div class="email details">
+        <i class="fas fa-envelope"></i>
+        <div class="topic">Email</div>
+        <div class="text-one"><a style="font-size: 14px; font-weight: 400; line-height: 20px;" href="mailto:info@momodurbar.com">info@momodurbar.com</a></div>
+        <div class="text-two"><a style="font-size: 14px; font-weight: 400; line-height: 20px;" href="mailto:momodurbars@gmail.com">momodurbars@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="right-side-contact">
+      <div class="topic-text">Send us a message</div>
+      <p>We'd love to hear from you! Whether you have a question, a suggestion, or just want to say hello, feel free to reach out to us using the contact information below:</p>
+    <form action="#">
+      <div class="input-box">
+        <input type="text" placeholder="Enter your name">
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your email">
+      </div>
+      <div class="input-box message-box">
+        <input type="text" name="message" id="message" placeholder="write a message...">
+      </div>
+      <div class="buttons">
+        <input type="submit" class="button primary-btn" style="border: none;"></input>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+
+
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLi = document.querySelectorAll(".navbar .nav-container a");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLi.forEach((li) => {
+      li.classList.remove("active");
+      if (li.classList.contains(current)) {
+        li.classList.add("active");
+      }
+    });
+
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
